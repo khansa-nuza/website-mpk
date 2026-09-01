@@ -1,0 +1,1387 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.7;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --maroon: #800000;
+    --dark-maroon: #4d0000;
+    --light-maroon: #a52a2a;
+    --black: #0d0d0d;
+    --dark: #171717;
+    --white: #ffffff;
+    --gray: #f4f4f4;
+    --text-gray: #666666;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(13, 13, 13, 0.95);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    transition: 0.3s;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    height: 80px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: white;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+}
+
+.logo span {
+    display: block;
+
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo small {
+    display: block;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: #d9a0a0;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: white;
+
+    font-size: 16px;
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--light-maroon);
+
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #d99b9b;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+
+    background: none;
+    border: none;
+
+    color: white;
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(75, 0, 0, 0.8)
+        ),
+        url("assets/images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 850px;
+
+    position: relative;
+    z-index: 2;
+
+    animation: fadeUp 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+
+    letter-spacing: 5px;
+
+    color: #e2aaaa;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 85px);
+
+    line-height: 1.1;
+
+    margin-bottom: 15px;
+}
+
+.hero-school {
+    font-size: 25px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #eeeeee;
+
+    font-size: 18px;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 13px 28px;
+
+    border-radius: 4px;
+
+    font-size: 17px;
+
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--maroon);
+
+    color: white;
+
+    border: 2px solid var(--maroon);
+}
+
+.btn-primary:hover {
+    background: var(--dark-maroon);
+
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    color: white;
+
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--maroon);
+}
+
+.scroll-down {
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    font-size: 14px;
+
+    color: #ddd;
+}
+
+.scroll-down i {
+    animation: bounce 1.5s infinite;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+
+    max-width: 750px;
+
+    margin: 0 auto 60px;
+}
+
+.section-label {
+    color: var(--maroon);
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    font-size: 14px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+
+    margin: 10px 0;
+}
+
+.section-line {
+    width: 70px;
+    height: 3px;
+
+    background: var(--maroon);
+
+    margin: 15px auto;
+}
+
+.section-header p {
+    color: var(--text-gray);
+}
+
+
+/* =========================
+   PROFIL
+========================= */
+
+.profil {
+    background: white;
+}
+
+.profil-content {
+    display: grid;
+
+    grid-template-columns: 1fr 1.2fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.profil-image {
+    display: flex;
+
+    justify-content: center;
+}
+
+.profil-image img {
+    width: 300px;
+    height: 300px;
+
+    object-fit: contain;
+
+    padding: 30px;
+
+    border: 10px solid #f2e5e5;
+
+    border-radius: 50%;
+}
+
+.profil-text h3 {
+    font-size: 30px;
+
+    color: var(--maroon);
+
+    margin-bottom: 15px;
+}
+
+.profil-text p {
+    color: #555;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   VISI MISI
+========================= */
+
+.visi-misi {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+
+    margin-top: 70px;
+}
+
+.visi-card {
+    padding: 40px;
+
+    background: #fafafa;
+
+    border-left: 5px solid var(--maroon);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+    transition: 0.3s;
+}
+
+.visi-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 15px 40px rgba(128,0,0,0.15);
+}
+
+.icon-box {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--maroon);
+
+    color: white;
+
+    font-size: 22px;
+
+    margin-bottom: 20px;
+}
+
+.visi-card h3 {
+    font-size: 28px;
+
+    margin-bottom: 15px;
+
+    color: var(--maroon);
+}
+
+.visi-card ul {
+    list-style: none;
+}
+
+.visi-card li {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.visi-card li i {
+    color: var(--maroon);
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   KEPENGURUSAN
+========================= */
+
+.kepengurusan {
+    background: var(--gray);
+}
+
+.sub-title {
+    text-align: center;
+
+    font-size: 30px;
+
+    margin-bottom: 35px;
+
+    color: var(--maroon);
+}
+
+.komisi-title {
+    margin-top: 80px;
+}
+
+.pengurus-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+}
+
+.komisi-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.komisi-grid .pengurus-card {
+    width: 250px;
+}
+
+
+.pengurus-card {
+    background: white;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.pengurus-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 20px 40px rgba(128,0,0,0.2);
+}
+
+.pengurus-image {
+    height: 280px;
+
+    overflow: hidden;
+
+    background: #ddd;
+}
+
+.pengurus-image img {
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.pengurus-card:hover img {
+    transform: scale(1.05);
+}
+
+.pengurus-info {
+    padding: 22px;
+}
+
+.pengurus-info span {
+    color: var(--maroon);
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    font-weight: bold;
+}
+
+.pengurus-info h3 {
+    font-size: 21px;
+
+    margin: 5px 0 15px;
+}
+
+.pengurus-info button {
+    border: none;
+
+    background: none;
+
+    color: var(--maroon);
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+.pengurus-info button i {
+    margin-left: 5px;
+
+    transition: 0.3s;
+}
+
+.pengurus-card:hover button i {
+    transform: translateX(5px);
+}
+
+
+/* =========================
+   PROKER
+========================= */
+
+.proker {
+    background: white;
+}
+
+.proker-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.proker-card {
+    background: #ffffff;
+
+    border: 1px solid rgba(128, 0, 0, 0.15);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.proker-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 15px 35px rgba(128, 0, 0, 0.18);
+
+    border-color: #800000;
+}
+.proker-image {
+    height: 220px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.proker-image img {
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.proker-card:hover .proker-image img {
+    transform: scale(1.07);
+}
+
+.proker-category {
+    display: inline-block;
+
+    color: #800000;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 15px;
+}
+
+.proker-content {
+    padding: 30px;
+}
+
+.proker-content h3 {
+    font-size: 25px;
+
+    color: #222;
+
+    margin-bottom: 15px;
+}
+
+.proker-content p {
+    color: #666;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+.detail-btn {
+    border: none;
+
+    background: none;
+
+    color: var(--maroon);
+
+    font-weight: bold;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   PENDAFTARAN
+========================= */
+
+.pendaftaran {
+    background:
+        linear-gradient(
+            rgba(70, 0, 0, 0.95),
+            rgba(10, 10, 10, 0.95)
+        );
+    
+    color: white;
+}
+
+.registration-box {
+    max-width: 850px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.registration-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: auto auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid white;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+.registration-box .section-label {
+    color: #e2aaaa;
+}
+
+.registration-box h2 {
+    font-size: 45px;
+
+    margin: 10px 0;
+}
+
+.registration-box > p {
+    color: #ddd;
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.registration-info {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    margin: 30px 0;
+}
+
+.registration-info div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.registration-info i {
+    font-size: 25px;
+
+    color: #d99b9b;
+}
+
+.registration-info span {
+    display: flex;
+
+    flex-direction: column;
+
+    text-align: left;
+}
+
+.registration-info strong {
+    color: white;
+}
+
+.registration-btn {
+    margin-bottom: 10px;
+}
+
+.registration-box small {
+    display: block;
+
+    color: #ccc;
+}
+
+
+/* =========================
+   KONTAK
+========================= */
+
+.kontak {
+    background: var(--gray);
+}
+
+.kontak-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.kontak-card {
+    text-align: center;
+
+    background: white;
+
+    padding: 40px 25px;
+
+    transition: 0.3s;
+}
+
+.kontak-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.kontak-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: auto auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--maroon);
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+}
+
+.kontak-card h3 {
+    font-size: 23px;
+
+    margin-bottom: 5px;
+}
+
+.kontak-card p {
+    color: #666;
+
+    margin-bottom: 15px;
+}
+
+.kontak-card a {
+    color: var(--maroon);
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: var(--black);
+
+    color: white;
+
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid #333;
+}
+
+.footer-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.footer-logo img {
+    width: 60px;
+    height: 60px;
+
+    object-fit: contain;
+}
+
+.footer-logo h3 {
+    font-size: 20px;
+}
+
+.footer-logo p {
+    color: #aaa;
+}
+
+.footer-social {
+    display: flex;
+
+    gap: 10px;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #555;
+
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    background: var(--maroon);
+
+    border-color: var(--maroon);
+}
+
+.footer-bottom {
+    padding-top: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    background: rgba(0,0,0,0.8);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 700px;
+
+    background: white;
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 250px 1fr;
+
+    animation: modalShow 0.3s ease;
+}
+
+.modal-content > img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 350px;
+
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 40px;
+}
+
+.modal-info span {
+    color: var(--maroon);
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.modal-info h2 {
+    font-size: 30px;
+
+    margin: 8px 0 25px;
+}
+
+.modal-info h4 {
+    color: var(--maroon);
+
+    margin-bottom: 10px;
+}
+
+.modal-info p {
+    color: #555;
+}
+
+.modal-close {
+    position: absolute;
+
+    right: 15px;
+    top: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    background: var(--maroon);
+
+    color: white;
+
+    z-index: 5;
+}
+
+/* =========================
+   MODAL PROGRAM KERJA
+========================= */
+
+.proker-modal {
+    width: 90%;
+    max-width: 850px;
+
+    max-height: 95vh;
+
+    overflow: visible;
+
+    padding: 0;
+}
+
+
+/* =========================
+   VIDEO PROKER
+========================= */
+
+.proker-video {
+    width: 100%;
+
+    height: 420px;
+
+    background: #000;
+
+    overflow: hidden;
+}
+
+.proker-video video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================
+   INFORMASI PROKER
+========================= */
+
+.proker-modal .modal-info {
+    padding: 18px 30px 22px;
+
+    max-height: none;
+
+    overflow: visible;
+}
+
+.proker-modal .modal-info h2 {
+    margin: 0 0 10px;
+}
+
+.proker-modal .modal-info p {
+    margin: 0;
+
+    line-height: 1.5;
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+.back-to-top {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    background: var(--maroon);
+
+    color: white;
+
+    border: none;
+
+    display: none;
+
+    z-index: 500;
+
+    transition: 0.3s;
+}
+
+.back-to-top.show {
+    display: block;
+}
+
+.back-to-top:hover {
+    background: var(--black);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition: 0.8s;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes bounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+
+}
+
+@keyframes modalShow {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .pengurus-grid,
+    .proker-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .nav-menu {
+
+        position: absolute;
+
+        top: 80px;
+        left: 0;
+
+        width: 100%;
+
+        background: var(--black);
+
+        display: none;
+
+        flex-direction: column;
+
+        padding: 25px;
+
+        gap: 20px;
+
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .profil-content,
+    .visi-misi {
+        grid-template-columns: 1fr;
+    }
+
+    .profil-image {
+        margin-bottom: 20px;
+    }
+.komisi-grid {
+    flex-direction: column;
+    align-items: center;
+}
+
+.komisi-grid .pengurus-card {
+    width: 100%;
+    max-width: 350px;
+}
+
+    .kontak-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-info {
+        flex-direction: column;
+
+        gap: 20px;
+
+        align-items: center;
+    }
+
+    .footer-content,
+    .footer-bottom {
+        flex-direction: column;
+
+        gap: 20px;
+
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero-subtitle {
+        font-size: 14px;
+
+        letter-spacing: 2px;
+    }
+
+    .hero-school {
+        font-size: 20px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section-header h2 {
+        font-size: 32px;
+    }
+
+    .pengurus-grid,
+    .proker-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        grid-template-columns: 1fr;
+
+        max-height: 90vh;
+
+        overflow-y: auto;
+    }
+
+    .modal-content > img {
+        height: 250px;
+
+        min-height: 0;
+    }
+
+    .modal-info {
+        padding: 25px;
+    }
+
+}
